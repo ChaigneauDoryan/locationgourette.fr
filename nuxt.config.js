@@ -3,16 +3,33 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - locationgourette.fr',
-    title: 'locationgourette.fr',
+    title: 'Gourette - Location Appartement',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'location gourette, location appartement gourette'
+      },
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'author', content: 'Doryan Chaigneau' },
+      {
+        name: "keywords",
+        content: 'location gourette, location appartement gourette'
+      },
+      { property: "og:title", content: "Gourette - Location Appartement" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://locationgourette.fr/" },
+      { property: "og:site_name", content: "Gourette - Location Appartement" },
+      {
+        property: "og:description",
+        content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il se situe sur la plateforme du Valentin."
+      },
+      { property: "og:locale", content: "fr_FR" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -20,12 +37,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -38,13 +53,14 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/sitemap'
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
