@@ -77,6 +77,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Adresses utiles',
           to: '/adressesUtiles'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Me contacter',
+          to: '/contact'
         }
       ],
       miniVariant: false,
