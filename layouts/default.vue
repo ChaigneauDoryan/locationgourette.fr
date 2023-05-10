@@ -64,22 +64,22 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-newspaper',
+          title: 'Annonce',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-directions',
           title: 'Plan des pistes',
           to: '/piste'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-contacts',
           title: 'Adresses utiles',
           to: '/adressesUtiles'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-devices',
           title: 'Me contacter',
           to: '/contact'
         }

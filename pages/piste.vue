@@ -3,7 +3,7 @@
     <v-card-item class="pa-0">
       <div class="d-sm-flex align-center justify-space-between">
         <h5 class="text-h5 mb-0 pl-7 pt-7">
-          <i class="fas fa-map-signs"></i>&nbsp;&nbsp;&nbsp;
+          <i class="mdi-directions"></i>&nbsp;&nbsp;&nbsp;
           <u>PLAN DES PISTES</u>
         </h5>
         <slot name="action"></slot>

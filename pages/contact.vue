@@ -98,7 +98,7 @@ export default {
         <v-card-item class="pa-0">
           <div class="d-sm-flex align-center justify-space-between">
             <h5 class="text-h5 mb-6 pl-7 pt-7">
-              <i class="fas fa-mail-bulk"></i>&nbsp;&nbsp;&nbsp;
+              <i class="mdi-devices"></i>&nbsp;&nbsp;&nbsp;
               <u>PAGE DE CONTACT</u> &nbsp; (Stéphane CHAIGNEAU : <a href="tel:0674814090" > 06 74 81 40 90</a>)
             </h5>
             <slot name="action"></slot>
