@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="10" class="withbg">
+  <v-card elevation="10" class="piste">
     <v-card-item class="pa-0">
       <div class="d-sm-flex align-center justify-space-between">
         <h5 class="text-h5 mb-0 pl-7 pt-7">
@@ -55,3 +55,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.piste {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+</style>
+
