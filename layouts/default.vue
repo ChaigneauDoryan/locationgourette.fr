@@ -50,7 +50,7 @@
     >
     </v-navigation-drawer>
     <v-footer
-      :absolute="!fixed"
+      :absolute="fixed"
       app
       class="footer"
     >
