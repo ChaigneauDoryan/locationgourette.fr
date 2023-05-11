@@ -32,7 +32,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ title }}</v-toolbar-title>
     </v-app-bar>
-    <v-main style="background-image: url('../assets/images/vueHiverBis.jpg')">
+    <v-main class="main-bg">
       <v-container>
         <Nuxt />
       </v-container>
@@ -99,5 +99,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.main-bg {
+  background-image: url('../assets/images/vueHiverBis.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 </style>
