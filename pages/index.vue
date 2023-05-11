@@ -1,83 +1,331 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+  <div>
+    <!--  Description de l'annonce-->
+    <v-row>
+    <v-col cols="12" md="12">
+      <v-card elevation="10" class="index">
+        <v-card-item class="pa-0">
+          <div class="d-sm-flex align-center justify-space-between">
+            <h5 class="text-h5 mb-0 pl-7 pt-7">
+              <v-icon>mdi-information</v-icon>&nbsp;&nbsp;&nbsp;
+              <u>DESCRIPTION DE L'ANNONCE</u>
+            </h5>
+            <slot name="action"></slot>
           </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
+          <v-card-text>
+            <h4>Situation :</h4>
+            <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-domain</v-icon>&nbsp;&nbsp;&nbsp;Appartement de 30M² entièrement rénové, balcon exposé sud avec vue sur les sommets.
+              </span>
+            </p>
+            <p style="margin-top: 5px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-map-marker</v-icon>&nbsp;&nbsp;&nbsp;Situé au cœur de la station au 4ème étage de la résidence Sanctus. Plateforme le valentin.
+              </span>
+            </p>
+            <p style="margin-top: 5px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-account</v-icon>&nbsp;&nbsp;&nbsp;Résidence avec concierge, 2 entrées avec badges et étages desservis par 2 ascenseurs.</span>
+            </p>
+            <br>
+            <h4>Cuisine intégrée entièrement neuve :</h4>
+            <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-silverware-fork-knife</v-icon>&nbsp;&nbsp;&nbsp;Lave-vaisselle, grand réfrigérateur, plaque induction, combiné four + micro ondes, cafetière, service raclette, grille-pain, aspirateur.</span>
+            </p>
+            <br>
+            <h4>Pièce de vie : </h4>
+            <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-home</v-icon>&nbsp;&nbsp;&nbsp;Spacieuse pour un studio, canapé/lit 140cm (sommier à lattes et matelas bultex), canapé/lit neuf BZ 1 personne, placard, TV 80cm, balcon</span>
+            </p>
+            <br>
+            <h4>Alcoves : </h4>
+            <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-bed-queen</v-icon>&nbsp;&nbsp;&nbsp;1 lit superposé 2 + 1 (140cm en bas / 90 cm en haut), possibilité de fermer la porte du couloir afin de séparer les deux espaces.</span>
+            </p>
+            <br>
+            <h4>Salle de bain rénovée : </h4>
+            <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-shower-head</v-icon>&nbsp;&nbsp;&nbsp;Douche avec paroi de douche vitrée<br>
+              </span>
+            </p>
+            <p style="margin-top: 5px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-toilet</v-icon>&nbsp;&nbsp;&nbsp;WC séparés
+              </span>
+            </p>
+            <br>
+            <h4>Information complémentaire : </h4>
+            <p style="margin-top: 5px;text-align: justify;">
+              <span style="margin-left: 20px;">
+                <v-icon>mdi-parking</v-icon>&nbsp;&nbsp;&nbsp;Parking gratuit</span>
+            </p>
+          </v-card-text>
+        </v-card-item>
       </v-card>
     </v-col>
   </v-row>
+
+    <!-- Heure d'arrivée / départ -->
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-card elevation="10" class="index">
+          <v-card-item class="pa-0">
+            <div class="d-sm-flex align-center justify-space-between">
+              <h5 class="text-h5 mb-0 pl-7 pt-7">
+                <v-icon>mdi-clock</v-icon>&nbsp;&nbsp;&nbsp;
+                <u>HEURE D'ARRIVÉE / DÉPART</u>
+              </h5>
+              <slot name="action"></slot>
+            </div>
+            <slot />
+            <v-card-text>
+              <p style="text-align: justify;margin-top: 0px;">
+              <span style="margin-left: 20px;">
+                Chers clients, nous souhaitons vous informer que l’heure d'arrivée est fixée à partir de 12h00 jusqu'à 18h00 et l’heure de départ avant 10h00. Si vous prévoyez arriver plus tôt ou de partir plus tard, veuillez nous en informer à l'avance pour que nous puissions organiser une solution alternative si possible. Nous apprécions votre coopération pour assurer une expérience agréable pour tous nos clients.
+              </span>
+              </p>
+            </v-card-text>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Remise des clés -->
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-card elevation="10" class="index">
+          <v-card-item class="pa-0">
+            <div class="d-sm-flex align-center justify-space-between">
+              <h5 class="text-h5 mb-0 pl-7 pt-7">
+                <v-icon>mdi-key</v-icon>&nbsp;&nbsp;&nbsp;
+                <u>REMISE DES CLES</u>
+              </h5>
+              <slot name="action"></slot>
+            </div>
+            <slot />
+            <v-card-text>
+              <p style="text-align: justify;margin-top: 0px;">
+              <span style="margin-left: 20px;">
+                Pour la remise des clés, c'est une remise en main propre avec le concierge.
+              </span>
+              </p>
+            </v-card-text>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!--  Photos-->
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-card elevation="10" class="index">
+          <v-card-item class="pa-0">
+            <div class="d-sm-flex align-center justify-space-between">
+              <h5 class="text-h5 mb-6 pl-7 pt-7">
+                <v-icon>mdi-camera</v-icon>&nbsp;&nbsp;&nbsp;
+                <u>PHOTOS</u>
+              </h5>
+              <slot name="action"></slot>
+            </div>
+            <slot />
+            <div className="pa-7 pt-1">
+              <v-carousel cycle :interval="3000">
+                <v-carousel-item
+                  v-for="(item,i) in items"
+                  :key="i"
+                  :src="item.src"
+                  class="carousel"
+                ></v-carousel-item>
+              </v-carousel>
+            </div>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Inventaire -->
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-card elevation="10" class="index">
+          <v-card-item class="pa-0">
+            <div class="d-sm-flex align-center justify-space-between">
+              <h5 class="text-h5 mb-0 pl-7 pt-7">
+                <v-icon>mdi-format-list-bulleted</v-icon>&nbsp;&nbsp;&nbsp;
+                <u>INVENTAIRE</u>
+              </h5>
+              <slot name="action"></slot>
+            </div>
+            <slot />
+            <v-card-text>
+              <p style="text-align: justify;">
+              <span style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;
+                L'inventaire repose sur la confiance. Si vous constatez à votre arrivée une anomalie ou un dysfonctionnement d'un équipement, nous vous prions de nous en informer dès que possible. L'objectif n'est pas de compter chaque couteau, fourchette…mais de vérifier si rien d'important ne manque.
+              </span>
+              </p>
+              <br>
+              <br>
+              <v-row style="text-align: center">
+                <v-col>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 3 Poëles</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 2 Casseroles</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Egoutoir</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Faitout</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Presse purée</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Couvercle</p>
+                </v-col>
+                <v-col>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Plusieurs plats au four</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Lot de couvert</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Tire bouchon</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Couteau à pain</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Grand couteau</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Couteau d'office</p>
+                </v-col>
+                <v-col>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Ouvre boîte</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Décapsuleur</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Econome</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Ciseau</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Fouet</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Ecumoir</p>
+                </v-col>
+                <v-col>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Louche</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Grille pain</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Cafetière</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Micro-onde combiné</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Service à raclette</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; 1 Fer à repasser</p>
+                </v-col>
+                <v-col>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Plusieurs assiettes</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Plusieurs verres</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Plusieurs bols</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Plusieurs tasses</p>
+                  <p style="text-align: left"><input type="checkbox" value="1">&nbsp; Jeux de société</p>
+                </v-col>
+              </v-row>
+              <br>
+              <br>
+              <p style="text-align: justify;">
+              <span style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;
+                Concernant le couchage, vous trouverez 4 couettes (1 pour lit double et 3 pour lit individuel), 5 oreillers ainsi que 2 couvertures.
+              </span>
+              </p>
+            </v-card-text>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!--  Règlement intérieur-->
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-card elevation="10" class="index">
+          <v-card-item class="pa-0">
+            <div class="d-sm-flex align-center justify-space-between">
+              <h5 class="text-h5 mb-0 pl-7 pt-7">
+                <v-icon>mdi-file</v-icon>&nbsp;&nbsp;&nbsp;
+                <u>RÈGLEMENT INTÉRIEUR</u>
+              </h5>
+              <slot name="action"></slot>
+            </div>
+            <slot />
+            <v-card-text>
+              <h4>
+                <v-icon>mdi-dog</v-icon>
+                Animaux :
+              </h4>
+              <p style="margin-top: 10px;text-align: justify;">
+                <span style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;Animaux non acceptés afin d’éviter toute nuisance sonore</span>
+              </p>
+              <br>
+              <h4>
+                <v-icon>mdi-smoking-off</v-icon>
+                Pensez aux prochains voyageurs :
+              </h4>
+              <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;
+                Il est strictement interdit de fumer dans ce logement. Nous vous demandons de penser aux prochains voyageurs qui souhaitent arriver dans un environnement sans odeur de tabac froid. Il est cependant autorisé de fumer sur le balcon de ce logement. Nous vous prions de bien vouloir refermer la porte-fenêtre pour éviter que la fumée ne pénètre à l'intérieur de l'appartement. Merci de respecter cette règle pour le confort de tous les voyageurs.
+              </span>
+              </p>
+              <br>
+              <h4>
+                <v-icon>mdi-glass-mug-off</v-icon>
+                En cas de casse :
+              </h4>
+              <p style="margin-top: 10px;text-align: justify;">
+              <span style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;
+                Dans le cas où vous casseriez quelque chose, nous vous prions de nous en informer immédiatement, afin que je prévois d'en rapporter lors de notre prochaine venue que ce soit pour une casse mineure due à l'usure d'un équipement ou pour un problème plus important. Il n'y aura pas de retenue sur la caution pour vaisselle cassée sauf si quantité importante.
+              </span>
+              </p>
+            </v-card-text>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
+
 </template>
 
 <script>
+import balcon from '@/assets/images/appartement/Balcon.jpg';
+import alcove from '@/assets/images/appartement/alcove.jpg';
+import alcove2 from '@/assets/images/appartement/alcove2.jpg';
+import vueEte from '@/assets/images/appartement/vueEte.jpg';
+import vueHiverBis from '@/assets/images/appartement/vueHiverBis.jpg';
+import vueInterieureBis from '@/assets/images/appartement/vueInterieureBis.jpg';
+import vueInterieurePano from '@/assets/images/appartement/vueInterieurePano.jpg';
+import wc from '@/assets/images/appartement/wc.jpg';
+import sdb from '@/assets/images/appartement/sdb.jpg';
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data() {
+    return {
+      items: [
+        {
+          src: vueInterieureBis,
+        },
+        {
+          src: vueInterieurePano,
+        },
+        {
+          src: alcove,
+        },
+        {
+          src: alcove2,
+        },
+        {
+          src: vueHiverBis,
+        },
+        {
+          src: vueEte,
+        },
+        {
+          src: sdb,
+        },
+        {
+          src: wc,
+        },
+        {
+          src: balcon,
+        },
+      ]
+    }
+  }
 }
 </script>
+
+
+<style>
+.index {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+</style>
