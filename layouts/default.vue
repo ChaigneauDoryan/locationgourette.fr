@@ -7,6 +7,11 @@
       fixed
       app
     >
+      <router-link to="/">
+        <div class="header-image">
+          <img src="@/assets/images/logo/Gourette.png" alt="Gourette">
+        </div>
+      </router-link>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -106,5 +111,16 @@ export default {
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.header-image {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.header-image img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
 }
 </style>
