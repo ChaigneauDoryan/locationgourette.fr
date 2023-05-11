@@ -105,5 +105,6 @@ export default {
   background-image: url('../assets/images/vueHiverBis.jpg');
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>
