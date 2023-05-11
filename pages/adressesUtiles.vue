@@ -5,7 +5,7 @@
         <v-card-item class="pa-0">
           <div class="d-sm-flex align-center justify-space-between">
             <h5 class="text-h5 mb-0 pl-7 pt-7">
-              <i :class="address.icone"></i>&nbsp;&nbsp;&nbsp;
+              <v-icon>{{ address.icone }}</v-icon>&nbsp;&nbsp;&nbsp;
               <u v-if="!address.lien">{{ address.nom }}</u>
               <a v-else :href="address.lien ? address.lien : '#'" target="_blank" class="lien">{{ address.nom }}</a>
             </h5>
@@ -33,7 +33,7 @@ export default {
         { icone: 'mdi-food', nom: 'Chez Régis', description: '', lien: '' },
         { icone: 'mdi-food', nom: 'Le Cairn', description: '', lien: '' },
         { icone: 'mdi-food', nom: 'La québotte', description: '', lien: '' },
-        { icone: 'mdi-mountains', nom: "Col de l'aubisque", description: '', lien: 'https://www.gourette.com/decouvrir/le-col-d-aubisque/' },
+        { icone: 'mdi-terrain', nom: "Col de l'aubisque", description: '', lien: 'https://www.gourette.com/decouvrir/le-col-d-aubisque/' },
         { icone: 'mdi-train', nom: "Petit train d'Artouste", description: '', lien: 'https://artouste.fr/ete/le-train-dartouste/' }
       ]
     };

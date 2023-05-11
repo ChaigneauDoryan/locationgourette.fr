@@ -69,7 +69,7 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-directions',
+          icon: 'mdi-ski',
           title: 'Plan des pistes',
           to: '/piste'
         },
