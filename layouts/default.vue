@@ -47,8 +47,9 @@
     <v-footer
       :absolute="!fixed"
       app
+      class="footer"
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>&nbsp; - &nbsp; Stéphane Chaigneau &nbsp; - &nbsp; <a href="https://locationgourette.fr">locationgourette.fr</a>
+      <span>&copy; {{ new Date().getFullYear() }}</span>&nbsp;-&nbsp;Stéphane Chaigneau&nbsp;-&nbsp;<a href="https://locationgourette.fr">locationgourette.fr</a>
     </v-footer>
   </v-app>
 </template>
@@ -92,3 +93,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
