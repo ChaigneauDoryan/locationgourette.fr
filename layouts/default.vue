@@ -116,6 +116,7 @@ export default {
 .header-image {
   text-align: center;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .header-image img {

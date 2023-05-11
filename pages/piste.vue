@@ -18,7 +18,7 @@
             <v-icon>mdi-minus</v-icon>
           </v-btn>
           <v-btn @click="resetZoom">
-            Réinitialisation
+            Réinitialiser
           </v-btn>
           <v-img
             :src="src"
