@@ -93,7 +93,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Location d'un studio de 35m² au pied des pistes !"
+      title: "Location studio au pied des pistes"
     }
   }
 }

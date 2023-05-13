@@ -1,8 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -19,13 +19,13 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'location gourette, location appartement gourette'
+        content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il est situé sur la plateforme du Valentin avec une superbe vue sur les pistes."
       },
       { name: 'format-detection', content: 'telephone=no' },
-      { name: 'author', content: 'Doryan Chaigneau' },
+      { name: 'author', content: 'Stéphane Chaigneau' },
       {
         name: "keywords",
-        content: 'location gourette, location appartement gourette'
+        content: 'location gourette, location Gourette, Location gourette, Location Gourette, Location appartement gourette, Location appartement Gourette, location appartement Gourette, appartement gourette, appartement Gourette, Appartement Gourette'
       },
       { property: "og:title", content: "Gourette - Location Appartement" },
       { property: "og:type", content: "website" },
@@ -33,7 +33,7 @@ export default {
       { property: "og:site_name", content: "Gourette - Location Appartement" },
       {
         property: "og:description",
-        content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il se situe sur la plateforme du Valentin."
+        content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il est situé sur la plateforme du Valentin avec une superbe vue pistes."
       },
       { property: "og:locale", content: "fr_FR" },
     ],
