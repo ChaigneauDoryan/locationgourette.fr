@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/piste", {data:[{}],fetch:{},mutations:void 0});
