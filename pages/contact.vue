@@ -75,7 +75,7 @@ export default {
           message: this.message,
           dateDebut: this.startDate,
           dateFin: this.endDate
-        },'yrBFeRoluzxG6JG2m'); //XW_jKn2feX3p2OPzM
+        },'XW_jKn2feX3p2OPzM');
         alert("Message envoyé.")
 
         // Rechargement de la page
