@@ -49,6 +49,8 @@ export default {
           return 'Le champ est obligatoire.'
         }
       ],
+      startDate: null,
+      endDate: null,
     }
   },
   created() {
@@ -71,7 +73,9 @@ export default {
           email: this.email,
           object: this.object,
           message: this.message,
-        },'XW_jKn2feX3p2OPzM');
+          dateDebut: this.startDate,
+          dateFin: this.endDate
+        },'yrBFeRoluzxG6JG2m'); //XW_jKn2feX3p2OPzM
         alert("Message envoyé.")
 
         // Rechargement de la page
@@ -83,8 +87,20 @@ export default {
     },
     convertToUpperCase() {
       this.lastname = this.lastname.toUpperCase();
+    },
+  },
+  computed: {
+    dateRules() {
+      const rules = [];
+      if (this.startDate) {
+        rules.push((value) => {
+          const isEndDateValid = value > this.startDate;
+          return isEndDateValid || 'La date de fin doit être supérieure à la date de début.';
+        });
+      }
+      return rules;
     }
-  }
+  },
 }
 
 </script>
@@ -123,7 +139,61 @@ export default {
                   </v-row>
 
                   <v-row>
-                    <v-col cols="12" md="12">
+                    <v-col cols="12" md="1">
+                      <v-menu
+                        ref="menu"
+                        v-model="menu"
+                        :close-on-content-click="false"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="auto"
+                      >
+                        <template v-slot:activator="{ on }">
+                          <v-text-field
+                            v-model="startDate"
+                            label="Date d'arrivée"
+                            readonly
+                            v-on="on"
+                            open-on-clear
+                          ></v-text-field>
+                        </template>
+                        <v-date-picker
+                          v-model="startDate"
+                          @input="menu = false"
+                          locale="fr"
+                        ></v-date-picker>
+                      </v-menu>
+                    </v-col>
+
+                    <v-col cols="12" md="1">
+                      <v-menu
+                        ref="menu"
+                        v-model="menu"
+                        :close-on-content-click="false"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="auto"
+                      >
+                        <template v-slot:activator="{ on }">
+                          <v-text-field
+                            v-model="endDate"
+                            label="Date de départ"
+                            readonly
+                            v-on="on"
+                            :rules="dateRules"
+                            open-on-clear
+                          ></v-text-field>
+                        </template>
+                        <v-date-picker
+                          v-model="endDate"
+                          @input="menu = false"
+                          :min="startDate"
+                          locale="fr"
+                        ></v-date-picker>
+                      </v-menu>
+                    </v-col>
+
+                    <v-col cols="12" md="10">
                       <v-text-field v-model="object" label="Objet" :rules="objectRules" required></v-text-field>
                     </v-col>
                   </v-row>
