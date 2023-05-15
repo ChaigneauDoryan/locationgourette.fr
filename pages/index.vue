@@ -133,16 +133,27 @@
               <slot name="action"></slot>
             </div>
             <slot />
-            <div className="pa-7 pt-1">
-              <v-carousel cycle :interval="3000">
-                <v-carousel-item
-                  v-for="(item,i) in items"
-                  :key="i"
-                  :src="item.src"
-                  class="carousel"
-                ></v-carousel-item>
+            <div class="carousel-container">
+              <v-carousel
+                cycle
+                :interval="3000"
+                class="carousel"
+                show-arrows="hover"
+                :height="carouselHeight"
+              >
+                <v-carousel-item v-for="(image, index) in images" :key="index">
+                  <v-sheet height="100%">
+                    <v-img
+                      :src="image.url"
+                      :alt="image.alt"
+                      class="carousel-image"
+                      contain
+                    ></v-img>
+                  </v-sheet>
+                </v-carousel-item>
               </v-carousel>
             </div>
+            <br>
           </v-card-item>
         </v-card>
       </v-col>
@@ -288,34 +299,17 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      items: [
-        {
-          src: vueInterieureBis,
-        },
-        {
-          src: vueInterieurePano,
-        },
-        {
-          src: alcove,
-        },
-        {
-          src: alcove2,
-        },
-        {
-          src: vueHiverBis,
-        },
-        {
-          src: vueEte,
-        },
-        {
-          src: sdb,
-        },
-        {
-          src: wc,
-        },
-        {
-          src: balcon,
-        },
+      carouselHeight: 500,
+      images: [
+        { url: vueInterieureBis, alt: 'vueInterieureBis' },
+        { url: vueInterieurePano, alt: 'vueInterieurePano' },
+        { url: alcove, alt: 'alcove' },
+        { url: alcove2, alt: 'alcove2' },
+        { url: vueHiverBis, alt: 'vueHiverBis' },
+        { url: vueEte, alt: 'vueEte' },
+        { url: sdb, alt: 'sdb' },
+        { url: wc, alt: 'wc' },
+        { url: balcon, alt: 'balcon' }
       ]
     }
   }
@@ -327,5 +321,13 @@ export default {
 .index {
   max-width: 1500px;
   margin: 0 auto;
+}
+.carousel-container {
+  width: 1500px;
+  height: 500px;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
 }
 </style>
