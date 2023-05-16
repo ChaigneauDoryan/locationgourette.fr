@@ -323,7 +323,6 @@ export default {
   margin: 0 auto;
 }
 .carousel-container {
-  width: 1500px;
   height: 500px;
 }
 .carousel-image {
