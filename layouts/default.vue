@@ -80,6 +80,11 @@ export default {
           to: '/piste'
         },
         {
+          icon: 'mdi-navigation',
+          title: 'Affiche l\'itinéraire',
+          to: '/itineraire'
+        },
+        {
           icon: 'mdi-contacts',
           title: 'Adresses utiles',
           to: '/adressesUtiles'
