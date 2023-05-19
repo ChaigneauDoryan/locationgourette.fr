@@ -139,7 +139,7 @@ export default {
                   </v-row>
 
                   <v-row>
-                    <v-col cols="12" md="1">
+                    <v-col cols="12" md="2">
                       <v-menu
                         ref="menu"
                         v-model="menu"
@@ -165,7 +165,7 @@ export default {
                       </v-menu>
                     </v-col>
 
-                    <v-col cols="12" md="1">
+                    <v-col cols="12" md="2">
                       <v-menu
                         ref="menu"
                         v-model="menu"
@@ -193,7 +193,7 @@ export default {
                       </v-menu>
                     </v-col>
 
-                    <v-col cols="12" md="10">
+                    <v-col cols="12" md="8">
                       <v-text-field v-model="object" label="Objet" :rules="objectRules" required></v-text-field>
                     </v-col>
                   </v-row>
