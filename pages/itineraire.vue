@@ -26,6 +26,42 @@
 <script>
 export default {
   name: "itineraire",
+  head() {
+    return {
+      title: 'Itinéraire',
+      htmlAttrs: {
+        lang: 'fr'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: "Adresse de l'appartement ainsi que son itinéraire."
+        },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'author', content: 'Stéphane Chaigneau' },
+        {
+          name: "keywords",
+          content: 'itineraire, location gourette, location Gourette, Location gourette, Location Gourette, Location appartement gourette, Location appartement Gourette, location appartement Gourette, appartement gourette, appartement Gourette, Appartement Gourette'
+        },
+        { property: "og:title", content: "Itinéraire" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://locationgourette.fr/itineraire" },
+        { property: "og:site_name", content: "Gourette - Location Appartement" },
+        {
+          property: "og:description",
+          content: "Adresse de l'appartement ainsi que son itinéraire."
+        },
+        { property: "og:locale", content: "fr_FR" },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
+      ]
+    };
+  },
   mounted() {
     const script = document.createElement("script");
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAC6yxfl9R8zhl4DvXVUfbFLroLxGYdQ2E&callback=initMap";

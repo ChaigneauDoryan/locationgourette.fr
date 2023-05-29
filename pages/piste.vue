@@ -36,6 +36,42 @@ import planDesPistesGourette from '@/assets/images/planDesPistesGourette.jpg';
 
 export default {
   name: 'pistes',
+  head() {
+    return {
+      title: 'Plan des pistes',
+      htmlAttrs: {
+        lang: 'fr'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: "Accès au plan des pistes."
+        },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'author', content: 'Stéphane Chaigneau' },
+        {
+          name: "keywords",
+          content: 'plan, piste, plan des pistes, location gourette, location Gourette, Location gourette, Location Gourette, Location appartement gourette, Location appartement Gourette, location appartement Gourette, appartement gourette, appartement Gourette, Appartement Gourette'
+        },
+        { property: "og:title", content: "Plan des pistes" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://locationgourette.fr/piste" },
+        { property: "og:site_name", content: "Gourette - Location Appartement" },
+        {
+          property: "og:description",
+          content: "Accès au plan des pistes."
+        },
+        { property: "og:locale", content: "fr_FR" },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
+      ]
+    };
+  },
   data() {
     return {
       zoomLevel: 1,

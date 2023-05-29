@@ -297,6 +297,42 @@ import sdb from '@/assets/images/appartement/sdb.jpg';
 
 export default {
   name: 'IndexPage',
+  head() {
+    return {
+      title: 'Gourette - Location Appartement',
+      htmlAttrs: {
+        lang: 'fr'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il est situé sur la plateforme du Valentin avec une superbe vue sur les pistes."
+        },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'author', content: 'Stéphane Chaigneau' },
+        {
+          name: "keywords",
+          content: 'location gourette, location Gourette, Location gourette, Location Gourette, Location appartement gourette, Location appartement Gourette, location appartement Gourette, appartement gourette, appartement Gourette, Appartement Gourette'
+        },
+        { property: "og:title", content: "Gourette - Location Appartement" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://locationgourette.fr/" },
+        { property: "og:site_name", content: "Gourette - Location Appartement" },
+        {
+          property: "og:description",
+          content: "Location d'un appartement de 35m² au pied des pistes à Gourette. Il est situé sur la plateforme du Valentin avec une superbe vue pistes."
+        },
+        { property: "og:locale", content: "fr_FR" },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
+      ]
+    };
+  },
   data() {
     return {
       carouselHeight: 500,
