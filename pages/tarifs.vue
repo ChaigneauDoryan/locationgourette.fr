@@ -39,11 +39,6 @@
                     <td v-if="item.tarif !== 0">{{ item.tarif }} €</td>
                     <td v-else></td>
                   </template>
-                  <template v-slot:item.Réserver="{ item }">
-                    <td>
-                      <v-btn v-if="item.disponible" @click="redirectToContact(item)" x-small>Réserver</v-btn>
-                    </td>
-                  </template>
                 </v-data-table>
               </v-card>
             </v-col>
