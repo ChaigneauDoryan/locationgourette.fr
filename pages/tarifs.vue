@@ -99,8 +99,7 @@ export default {
       headers: [
         { text: 'Semaine', value: 'start', align: 'left', clearable: true, sortable: false },
         { text: 'Tarif', value: 'tarif', align: 'left', clearable: true, sortable: false },
-        { text: 'Disponibilité', value: 'disponible', align: 'left', clearable: true, sortable: false },
-      { text: 'Réserver', value: 'Réserver', align: 'left', sortable: false },
+        { text: 'Disponibilité', value: 'disponible', align: 'left', clearable: true, sortable: false }
       ],
     };
   },
