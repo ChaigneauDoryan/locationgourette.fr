@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import planDesPistesGourette from '@/assets/images/planDesPistesGourette.jpg';
+import planDesPistesGourette from '@/assets/images/planDesPistesGourette.webp';
 
 export default {
   name: 'pistes',

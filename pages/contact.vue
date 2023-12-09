@@ -1,148 +1,4 @@
-<script>
-import emailjs from 'emailjs-com';
-
-export default {
-  name: 'contact',
-  head() {
-    return {
-      title: 'Contactez-nous',
-      htmlAttrs: {
-        lang: 'fr'
-      },
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          hid: 'description',
-          name: 'description',
-          content: "Vous souhaitez plus d'informations ? Une réservation ? Rendez-vous sur la page de contact."
-        },
-        { name: 'format-detection', content: 'telephone=no' },
-        { name: 'author', content: 'Stéphane Chaigneau' },
-        {
-          name: "keywords",
-          content: 'contact, location gourette, location Gourette, Location gourette, Location Gourette, Location appartement gourette, Location appartement Gourette, location appartement Gourette, appartement gourette, appartement Gourette, Appartement Gourette'
-        },
-        { property: "og:title", content: "Contact-nous" },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://locationgourette.fr/contact" },
-        { property: "og:site_name", content: "Gourette - Location Appartement" },
-        {
-          property: "og:description",
-          content: "Vous souhaitez plus d'informations ? Une réservation ? Rendez-vous sur la page de contact."
-        },
-        { property: "og:locale", content: "fr_FR" },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap' },
-      ]
-    };
-  },
-  data() {
-    return  {
-      valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        value => {
-          if (value) return true
-
-          return 'Le champ est obligatoire.'
-        },
-        value => {
-          if (value?.length <= 20) return true
-
-          return 'Le champ doit contenir moins de 20 caractères.'
-        },
-      ],
-      email: '',
-      emailRules: [
-        value => {
-          if (value) return true
-
-          return 'L\'e-mail est obligatoire.'
-        },
-        value => {
-          if (/.+@.+\..+/.test(value)) return true
-
-          return 'L\'e-mail doit être valide.'
-        },
-      ],
-      object: '',
-      objectRules: [
-        value => {
-          if (value) return true
-
-          return 'L\'objet est obligatoire.'
-        }
-      ],
-      message: '',
-      messageRules: [
-        value => {
-          if (value) return true
-
-          return 'Le champ est obligatoire.'
-        }
-      ],
-      startDate: null,
-      endDate: null,
-    }
-  },
-  created() {
-    this.initializeFields();
-  },
-  methods:{
-    initializeFields() {
-      this.firstname = '';
-      this.lastname = '';
-      this.email = '';
-      this.object = '';
-      this.message = '';
-    },
-    sendEmail() {
-      try {
-        // Envoie du mail
-        emailjs.send('serviceGmail','templateContact',{
-          firstname: this.firstname,
-          lastname: this.lastname,
-          email: this.email,
-          object: this.object,
-          message: this.message,
-          dateDebut: this.startDate,
-          dateFin: this.endDate
-        },'XW_jKn2feX3p2OPzM');
-        alert("Message envoyé.")
-
-        // Rechargement de la page
-        location.reload();
-      } catch (error) {
-        console.log(error)
-        alert("Une erreur s'est produite, veuillez réessayer !")
-      }
-    },
-    convertToUpperCase() {
-      this.lastname = this.lastname.toUpperCase();
-    },
-  },
-  computed: {
-    dateRules() {
-      const rules = [];
-      if (this.startDate) {
-        rules.push((value) => {
-          const isEndDateValid = value > this.startDate;
-          return isEndDateValid || 'La date de fin doit être supérieure à la date de début.';
-        });
-      }
-      return rules;
-    }
-  },
-}
-
-</script>
-
 <template>
-
   <!-- Formulaire de contact -->
   <v-row>
     <v-col cols="12" md="12">
@@ -151,7 +7,7 @@ export default {
           <div class="d-sm-flex align-center justify-space-between">
             <h5 class="text-h5 mb-6 pl-7 pt-7">
               <v-icon>mdi-devices</v-icon>&nbsp;&nbsp;&nbsp;
-              <u>PAGE DE CONTACT</u> &nbsp; (Stéphane CHAIGNEAU : <a href="tel:0674814090" > 06 74 81 40 90</a>)
+              <u>PAGE DE CONTACT</u> &nbsp; (Stéphane CHAIGNEAU : <a href="tel:0674814090"> 06 74 81 40 90</a>)
             </h5>
             <slot name="action"></slot>
           </div>
@@ -251,6 +107,139 @@ export default {
     </v-col>
   </v-row>
 </template>
+
+<script>
+import emailjs from 'emailjs-com';
+
+export default {
+  name: 'contact',
+  data() {
+    return {
+      valid: false,
+      firstname: '',
+      lastname: '',
+      nameRules: [
+        value => {
+          if (value) return true;
+          return 'Le champ est obligatoire.';
+        },
+        value => {
+          if (value?.length <= 20) return true;
+          return 'Le champ doit contenir moins de 20 caractères.';
+        },
+      ],
+      email: '',
+      emailRules: [
+        value => {
+          if (value) return true;
+          return 'L\'e-mail est obligatoire.';
+        },
+        value => {
+          if (/.+@.+\..+/.test(value)) return true;
+          return 'L\'e-mail doit être valide.';
+        },
+      ],
+      object: '',
+      objectRules: [
+        value => {
+          if (value) return true;
+          return 'L\'objet est obligatoire.';
+        },
+      ],
+      message: '',
+      messageRules: [
+        value => {
+          if (value) return true;
+          return 'Le champ est obligatoire.';
+        },
+      ],
+      startDate: null,
+      endDate: null,
+    };
+  },
+  watch: {
+    firstname(value) {
+      this.saveToLocalStorage('firstname', value);
+    },
+    lastname(value) {
+      this.saveToLocalStorage('lastname', value);
+    },
+    email(value) {
+      this.saveToLocalStorage('email', value);
+    },
+    startDate(value) {
+      this.saveToLocalStorage('startDate', value);
+    },
+    endDate(value) {
+      this.saveToLocalStorage('endDate', value);
+    },
+    object(value) {
+      this.saveToLocalStorage('object', value);
+    },
+    message(value) {
+      this.saveToLocalStorage('message', value);
+    },
+  },
+  created() {
+    this.initializeFields();
+    this.loadFromLocalStorage('firstname', 'lastname', 'email', 'startDate', 'endDate', 'object', 'message');
+  },
+  methods: {
+    initializeFields() {
+      this.firstname = '';
+      this.lastname = '';
+      this.email = '';
+      this.object = '';
+      this.message = '';
+    },
+    sendEmail() {
+      try {
+        // Envoie du mail
+        emailjs.send('serviceGmail', 'templateContact', {
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+          object: this.object,
+          message: this.message,
+          dateDebut: this.startDate,
+          dateFin: this.endDate,
+        }, 'XW_jKn2feX3p2OPzM');
+        alert("Message envoyé.");
+
+        // Rechargement de la page
+        location.reload();
+      } catch (error) {
+        console.log(error);
+        alert("Une erreur s'est produite, veuillez réessayer !");
+      }
+    },
+    convertToUpperCase() {
+      this.lastname = this.lastname.toUpperCase();
+    },
+    dateRules() {
+      const rules = [];
+      if (this.startDate) {
+        rules.push((value) => {
+          const isEndDateValid = value > this.startDate;
+          return isEndDateValid || 'La date de fin doit être supérieure à la date de début.';
+        });
+      }
+      return rules;
+    },
+    saveToLocalStorage(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+    loadFromLocalStorage(...keys) {
+      keys.forEach((key) => {
+        const value = localStorage.getItem(key);
+        if (value) {
+          this[key] = JSON.parse(value);
+        }
+      });
+    },
+  },
+};
+</script>
 
 <style>
 .contact {

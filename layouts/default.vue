@@ -90,6 +90,11 @@ export default {
           to: '/adressesUtiles'
         },
         {
+          icon: 'mdi-tag',
+          title: 'Tarifs et disponibilités',
+          to: '/tarifs'
+        },
+        {
           icon: 'mdi-devices',
           title: 'Me contacter',
           to: '/contact'
@@ -112,7 +117,7 @@ export default {
 }
 
 .main-bg {
-  background-image: url('../assets/images/vueHiverBis.jpg');
+  background-image: url('../assets/images/vueHiverBis.webp');
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-attachment: fixed;

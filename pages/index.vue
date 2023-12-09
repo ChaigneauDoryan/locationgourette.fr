@@ -285,15 +285,15 @@
 </template>
 
 <script>
-import balcon from '@/assets/images/appartement/Balcon.jpg';
-import alcove from '@/assets/images/appartement/alcove.jpg';
-import alcove2 from '@/assets/images/appartement/alcove2.jpg';
-import vueEte from '@/assets/images/appartement/vueEte.jpg';
-import vueHiverBis from '@/assets/images/appartement/vueHiverBis.jpg';
-import vueInterieureBis from '@/assets/images/appartement/vueInterieureBis.jpg';
-import vueInterieurePano from '@/assets/images/appartement/vueInterieurePano.jpg';
-import wc from '@/assets/images/appartement/wc.jpg';
-import sdb from '@/assets/images/appartement/sdb.jpg';
+import balcon from '@/assets/images/appartement/Balcon.webp';
+import alcove from '@/assets/images/appartement/alcove.webp';
+import alcove2 from '@/assets/images/appartement/alcove2.webp';
+import vueEte from '@/assets/images/appartement/vueEte.webp';
+import vueHiverBis from '@/assets/images/appartement/vueHiverBis.webp';
+import vueInterieureBis from '@/assets/images/appartement/vueInterieureBis.webp';
+import vueInterieurePano from '@/assets/images/appartement/vueInterieurePano.webp';
+import wc from '@/assets/images/appartement/wc.webp';
+import sdb from '@/assets/images/appartement/sdb.webp';
 
 export default {
   name: 'IndexPage',
