@@ -95,6 +95,7 @@ export default {
         { start: '2024-09-14', end: '2024-09-21', tarif: 250, disponible: true },
         { start: '2024-09-21', end: '2024-09-28', tarif: 250, disponible: true }
       ],
+      
       search: '',
       headers: [
         { text: 'Semaine', value: 'start', align: 'left', clearable: true, sortable: false },
