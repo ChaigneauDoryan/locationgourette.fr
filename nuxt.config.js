@@ -47,7 +47,12 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
+
+  head: {
+    meta: [
+      { name: 'google-site-verification', content: 'e0bqgrNNrJQQK_tsY3xgTMo-oG-U_Jh1zmFuHkXbowU' },
+    ],
+  },
 
 }
