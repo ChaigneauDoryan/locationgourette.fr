@@ -89,13 +89,8 @@ export default {
         { start: '2024-08-03', end: '2024-08-10', tarif: 250, disponible: true },
         { start: '2024-08-10', end: '2024-08-17', tarif: 250, disponible: true },
         { start: '2024-08-17', end: '2024-08-24', tarif: 250, disponible: true },
-        { start: '2024-08-24', end: '2024-08-31', tarif: 250, disponible: true },
-        { start: '2024-08-31', end: '2024-09-07', tarif: 250, disponible: true },
-        { start: '2024-09-07', end: '2024-09-14', tarif: 250, disponible: true },
-        { start: '2024-09-14', end: '2024-09-21', tarif: 250, disponible: true },
-        { start: '2024-09-21', end: '2024-09-28', tarif: 250, disponible: true }
-      ],
-      
+        { start: '2024-08-24', end: '2024-08-31', tarif: 250, disponible: true }
+      ],      
       search: '',
       headers: [
         { text: 'Semaine', value: 'start', align: 'left', clearable: true, sortable: false },
