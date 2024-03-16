@@ -80,7 +80,7 @@ export default {
         { start: '2024-06-01', end: '2024-06-08', tarif: 0, disponible: false },
         { start: '2024-06-08', end: '2024-06-15', tarif: 0, disponible: false },
         { start: '2024-06-15', end: '2024-06-22', tarif: 0, disponible: false },
-        { start: '2024-06-22', end: '2024-06-29', tarif: 250, disponible: true },
+        { start: '2024-06-22', end: '2024-06-29', tarif: 0, disponible: false },
         { start: '2024-06-29', end: '2024-07-06', tarif: 250, disponible: true },
         { start: '2024-07-06', end: '2024-07-13', tarif: 250, disponible: true },
         { start: '2024-07-13', end: '2024-07-20', tarif: 250, disponible: true },
