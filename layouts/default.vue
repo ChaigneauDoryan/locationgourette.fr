@@ -91,8 +91,8 @@ export default {
         },
         {
           icon: 'mdi-tag',
-          title: 'Tarifs et disponibilités',
-          to: '/tarifs'
+          title: 'Disponibilités',
+          to: '/disponibilites'
         },
         {
           icon: 'mdi-devices',
