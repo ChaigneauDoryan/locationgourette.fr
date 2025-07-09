@@ -41,15 +41,20 @@ const AvailabilityCalendar = () => {
 
   // Fonction pour vérifier la disponibilité d'une date
   const isDateAvailable = (date: Date): boolean => {
-    const dateString = date.toISOString().split('T')[0];
+    // Créer une date de référence locale pour la comparaison (minuit du jour)
+    const checkDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
     for (const period of availabilities) {
       if (period.is_available === false) {
-        const start = new Date(period.start_date);
-        const end = new Date(period.end_date);
-        // Ajuster la date de fin pour inclure le jour de fin
-        end.setDate(end.getDate() + 1);
+        // Parser start_date et end_date comme des dates locales pour éviter les problèmes de fuseau horaire
+        const [startY, startM, startD] = period.start_date.split('-').map(Number);
+        const start = new Date(startY, startM - 1, startD); // Mois est 0-indexé
 
-        if (date >= start && date < end) {
+        const [endY, endM, endD] = period.end_date.split('-').map(Number);
+        const end = new Date(endY, endM - 1, endD); // Mois est 0-indexé
+
+        // Vérifier si la date est dans la période (inclusivement)
+        if (checkDate >= start && checkDate <= end) {
           return false; // Non disponible
         }
       }
