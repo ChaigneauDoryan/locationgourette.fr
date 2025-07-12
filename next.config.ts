@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     },
   },
   /* config options here */
+  output: 'standalone',
 };
 
 export default withTM(['react-icons'])(nextConfig);
