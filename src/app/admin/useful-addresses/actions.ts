@@ -63,7 +63,7 @@ export async function addUsefulAddressServer(formData: FormData): Promise<{ succ
   const url = (formData.get('url') as string)?.trim() || null;
   const icon_name = (formData.get('icon_name') as string)?.trim() || null; // Récupérer le nom de l'icône
 
-  const { data: maxPosData, error: maxPosError } = await supabase
+  const { data: maxPosData } = await supabase
     .from('useful_addresses')
     .select('position')
     .order('position', { ascending: false })

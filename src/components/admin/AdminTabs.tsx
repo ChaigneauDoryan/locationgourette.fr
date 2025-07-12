@@ -52,7 +52,7 @@ export default function AdminTabs() {
 
       {activeTab === 'dashboard' && (
         <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Fonctionnalités d'administration</h2>
+          <h2 className="text-2xl font-bold mb-4">Fonctionnalités d&apos;administration</h2>
           <ul>
             <li className="mb-2">
               <Link href="/admin/useful-addresses" className="text-blue-500 hover:underline">Gérer les adresses utiles</Link>
@@ -64,7 +64,7 @@ export default function AdminTabs() {
               <Link href="/admin/images" className="text-blue-500 hover:underline">Gérer les images</Link>
             </li>
             <li className="mb-2">
-              <Link href="/admin/inventory" className="text-blue-500 hover:underline">Gérer l'inventaire</Link>
+              <Link href="/admin/inventory" className="text-blue-500 hover:underline">Gérer l&apos;inventaire</Link>
             </li>
           </ul>
         </div>

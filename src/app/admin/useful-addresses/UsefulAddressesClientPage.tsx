@@ -3,20 +3,12 @@
 
 import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
 import { SortableContext, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
 
-// Define the type for a Useful Address
-interface UsefulAddress {
-  id: string;
-  name: string;
-  description: string | null;
-  url: string | null;
-  position: number;
-  icon_name: string | null; // Nouvelle colonne pour le nom de l'icône
-}
+import { UsefulAddress } from '@/types/UsefulAddress';
 
 
 
@@ -66,7 +58,8 @@ function SortableItem({ address, onEdit, onDelete }: { address: UsefulAddress; o
 }
 
 // --- Useful Address Form Component ---
-import { FaMapMarkerAlt, FaSkiing, FaTicketAlt, FaFilm, FaShoppingCart, FaStore, FaUtensils, FaMountain, FaTrain, FaQuestionCircle, FaHome, FaInfoCircle, FaPhone, FaEnvelope, FaCalendarAlt, FaClock, FaUser, FaCog, FaChartBar, FaBell, FaExclamationTriangle, FaCheckCircle, FaTimesCircle, FaPlus, FaEdit, FaTrash, FaSave, FaSearch, FaPrint, FaDownload, FaUpload, FaShareAlt, FaLink, FaExternalLinkAlt, FaBars, FaTimes, FaArrowLeft, FaArrowRight, FaChevronDown, FaChevronUp, FaChevronLeft, FaChevronRight, FaTh, FaList, FaTable, FaFolder, FaFile, FaImage, FaVideo, FaMusic, FaGlobe, FaLock, FaUnlockAlt, FaKey, FaCreditCard, FaMoneyBillAlt, FaPercent, FaTag, FaTags, FaStar, FaHeart, FaThumbsUp, FaThumbsDown, FaComment, FaComments, FaQuoteLeft, FaQuoteRight, FaEye, FaEyeSlash, FaWifi, FaBluetoothB, FaBatteryFull, FaBatteryHalf, FaBatteryQuarter, FaBatteryEmpty, FaPlug, FaPowerOff, FaSyncAlt, FaRedo, FaUndo, FaHistory, FaHourglassHalf, FaSpinner, FaCircleNotch, FaEllipsisH, FaEllipsisV, FaQuestion, FaInfo, FaExclamation, FaAsterisk, FaHashtag, FaAt, FaCopyright, FaRegistered, FaTrademark, FaDollarSign, FaEuroSign, FaPoundSign, FaRupeeSign, FaYenSign, FaBitcoin, FaCcVisa, FaCcMastercard, FaCcAmex, FaCcDiscover, FaPaypal, FaStripe, FaAmazon, FaApple, FaWindows, FaLinux, FaAndroid, FaChrome, FaFirefox, FaEdge, FaSafari, FaOpera, FaInternetExplorer, FaGithub, FaGitlab, FaBitbucket, FaStackOverflow, FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaPinterest, FaYoutube, FaVimeo, FaReddit, FaWhatsapp, FaTelegramPlane, FaSkype, FaSlack, FaDiscord, FaWordpress, FaShopify, FaMagento, FaDrupal, FaJoomla, FaReact, FaAngular, FaVuejs, FaNodeJs, FaPython, FaPhp, FaJava, FaCplusplus, FaCsharp, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaServer, FaCloud, FaTerminal, FaCode, FaBug, FaGavel, FaShieldAlt, FaUserShield, FaUserLock, FaUserPlus, FaUserMinus, FaUserTimes, FaUsers, FaUserCircle, FaIdCard, FaAddressBook, FaAddressCard, FaEnvelopeOpen, FaPaperPlane, FaInbox, FaCalendarCheck, FaCalendarMinus, FaCalendarPlus, FaCalendarTimes } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaSkiing, FaTicketAlt, FaFilm, FaShoppingCart, FaStore, FaUtensils, FaMountain, FaTrain, FaQuestionCircle, FaHome, FaInfoCircle, FaPhone, FaEnvelope, FaCalendarAlt, FaClock, FaUser, FaCog, FaChartBar, FaBell, FaExclamationTriangle, FaCheckCircle, FaTimesCircle, FaPlus, FaEdit, FaTrash, FaSave, FaSearch, FaPrint, FaDownload, FaUpload, FaShareAlt, FaLink, FaExternalLinkAlt, FaBars, FaTimes, FaArrowLeft, FaArrowRight, FaChevronDown, FaChevronUp, FaChevronLeft, FaChevronRight, FaTh, FaList, FaTable, FaFolder, FaFile, FaImage, FaVideo, FaMusic, FaGlobe, FaLock, FaUnlockAlt, FaKey, FaCreditCard, FaMoneyBillAlt, FaPercent, FaTag, FaTags, FaStar, FaHeart, FaThumbsUp, FaThumbsDown, FaComment, FaComments, FaQuoteLeft, FaQuoteRight, FaEye, FaEyeSlash, FaWifi, FaBluetoothB, FaBatteryFull, FaBatteryHalf, FaBatteryQuarter, FaBatteryEmpty, FaPlug, FaPowerOff, FaSyncAlt, FaRedo, FaUndo, FaHistory, FaHourglassHalf, FaSpinner, FaCircleNotch, FaEllipsisH, FaEllipsisV, FaQuestion, FaInfo, FaExclamation, FaAsterisk, FaHashtag, FaAt, FaCopyright, FaRegistered, FaTrademark, FaDollarSign, FaEuroSign, FaPoundSign, FaRupeeSign, FaYenSign, FaBitcoin, FaCcVisa, FaCcMastercard, FaCcAmex, FaCcDiscover, FaPaypal, FaStripe, FaAmazon, FaApple, FaWindows, FaLinux, FaAndroid, FaChrome, FaFirefox, FaEdge, FaSafari, FaOpera, FaInternetExplorer, FaGithub, FaGitlab, FaBitbucket, FaStackOverflow, FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaPinterest, FaYoutube, FaVimeo, FaReddit, FaWhatsapp, FaTelegramPlane, FaSkype, FaSlack, FaDiscord, FaWordpress, FaShopify, FaMagento, FaDrupal, FaJoomla, FaReact, FaAngular, FaVuejs, FaNodeJs, FaPython, FaPhp, FaJava, FaCsharp, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaServer, FaCloud, FaTerminal, FaCode, FaBug, FaGavel, FaShieldAlt, FaUserShield, FaUserLock, FaUserPlus, FaUserMinus, FaUserTimes, FaUsers, FaUserCircle, FaIdCard, FaAddressBook, FaAddressCard, FaEnvelopeOpen, FaPaperPlane, FaInbox, FaCalendarCheck, FaCalendarMinus, FaCalendarPlus, FaCalendarTimes } from 'react-icons/fa';
+import { DiCplusplus } from 'react-icons/di';
 import IconSelect from '@/components/IconSelect';
 
 // Liste des icônes disponibles
@@ -218,7 +211,7 @@ const availableIcons = [
   { name: 'FaPython', component: FaPython },
   { name: 'FaPhp', component: FaPhp },
   { name: 'FaJava', component: FaJava },
-  { name: 'FaCplusplus', component: FaCplusplus },
+  { name: 'DiCplusplus', component: DiCplusplus },
   { name: 'FaCsharp', component: FaCsharp },
   { name: 'FaHtml5', component: FaHtml5 },
   { name: 'FaCss3Alt', component: FaCss3Alt },
@@ -391,20 +384,13 @@ export default function UsefulAddressesClientPage({ initialAddresses, addUsefulA
     })
   );
 
-  const refreshAddresses = async () => {
-    // Data is now fetched by the Server Component, so we just reset the editing state
-    setEditingAddress(null);
-    // For re-fetching after mutations, we can re-fetch from the server action directly
-    // or rely on Next.js revalidation if the server action revalidates the path.
-    // For now, we'll assume the server actions revalidate the path.
-    // If a full re-fetch is needed, it would be: const fetchedAddresses = await getUsefulAddressesServer(); setAddresses(fetchedAddresses);
-  };
+  
 
   useEffect(() => {
     setAddresses(initialAddresses);
   }, [initialAddresses]);
 
-  const handleDragEnd = async (event: any) => {
+  const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
     if (active.id !== over.id) {

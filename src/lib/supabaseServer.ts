@@ -15,7 +15,7 @@ export function createClient() {
         set(name: string, value: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value, ...options });
-          } catch (error) {
+          } catch {
             // The `cookies().set()` method can throw an error when called from a Server Component
             // that is being rendered below a `Suspense` boundary. Unforunately, there's no way to
             // opt out of this behavior yet. This will be fixed in a future version of Next.js
@@ -25,7 +25,7 @@ export function createClient() {
         remove(name: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value: '', ...options });
-          } catch (error) {
+          } catch {
             // The `cookies().set()` method can throw an error when called from a Server Component
             // that is being rendered below a `Suspense` boundary. Unforunately, there's no way to
             // opt out of this behavior yet. This will be fixed in a future version of Next.js

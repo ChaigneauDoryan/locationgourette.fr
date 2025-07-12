@@ -8,7 +8,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { FaBars } from 'react-icons/fa';
 
 import { InventoryCategory, InventoryItem } from '@/app/admin/inventory/page';
-import { addCategory, updateCategory, deleteCategory, updateCategoryPositions, addItem, updateItem, deleteItem, updateItemPositions as updateItemPositionsAction } from '@/app/admin/inventory/actions';
+
 
 // Sortable Item Component for Inventory Items
 function SortableInventoryItem({ item, startEditingItem, handleDeleteItem }: {

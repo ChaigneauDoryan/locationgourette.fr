@@ -1,11 +1,10 @@
 "use client"; // Ajouter cette ligne au tout début du fichier
 
-import { supabase } from '@/lib/supabase'; // Utiliser l'instance client
-import { redirect } from 'next/navigation';
-import AvailabilityPeriodForm from '@/components/admin/AvailabilityPeriodForm';
-import { useRouter } from 'next/navigation'; // Importer useRouter
 
-export default function AvailabilitiesPage() { // Retirer 'async'
+import AvailabilityPeriodForm from '@/components/admin/AvailabilityPeriodForm';
+import { useRouter } from 'next/navigation';
+
+export default function AvailabilitiesPage() {
   const router = useRouter(); // Initialiser useRouter
 
   // La logique d'authentification doit être adaptée pour le client

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Image } from '@/app/admin/images/page';
+import NextImage from 'next/image';
 import { uploadImage, updateImage, deleteImage, updateImagePositions } from '@/app/admin/images/actions';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable';
@@ -33,7 +33,7 @@ function SortableImageRow({ image, getPublicUrl, startEditing, handleDelete }: {
         <button {...listeners} className="cursor-grab absolute left-0 top-0 bottom-0 w-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200">
           ☰
         </button>
-        <img src={getPublicUrl(image.storage_path)} alt={image.alt_text} className="w-20 h-20 object-cover ml-10" />
+        <NextImage src={getPublicUrl(image.storage_path)} alt={image.alt_text} width={80} height={80} className="object-cover ml-10" />
       </td>
       <td className="py-2 px-4 border-b">{image.alt_text}</td>
       <td className="py-2 px-4 border-b">{image.position}</td>
@@ -79,7 +79,7 @@ export default function ImageAdminClientPage({ initialImages }: ImageAdminClient
     setImages(initialImages);
   }, [initialImages]);
 
-  const handleDragEnd = async (event: any) => {
+  const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
     if (active.id !== over.id) {
@@ -108,7 +108,7 @@ export default function ImageAdminClientPage({ initialImages }: ImageAdminClient
   };
 
   // Helper function for array reordering
-  const arrayMove = (array: any[], oldIndex: number, newIndex: number) => {
+  const arrayMove = (array: Image[], oldIndex: number, newIndex: number) => {
     const newArray = [...array];
     const [removed] = newArray.splice(oldIndex, 1);
     newArray.splice(newIndex, 0, removed);

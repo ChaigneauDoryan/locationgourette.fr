@@ -2,15 +2,7 @@ import React from 'react';
 import { createClient as createServerClient } from '@/lib/supabaseServer';
 import { FaMapMarkerAlt, FaSkiing, FaTicketAlt, FaFilm, FaShoppingCart, FaStore, FaUtensils, FaMountain, FaTrain, FaQuestionCircle } from 'react-icons/fa';
 
-// Define the type for a Useful Address
-interface UsefulAddress {
-  id: string;
-  name: string;
-  description: string | null;
-  url: string | null;
-  position: number;
-  icon_name: string | null; // Nouvelle colonne pour le nom de l'icône
-}
+
 
 // Mappage des noms d'icônes aux composants d'icônes
 const iconComponents: { [key: string]: React.ElementType } = {

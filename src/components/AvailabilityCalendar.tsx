@@ -26,7 +26,7 @@ const AvailabilityCalendar = () => {
           throw error;
         }
         setAvailabilities(data || []);
-      } catch (err: any) {
+      } catch (err: unknown) {
         setError(err.message);
       } finally {
         setLoading(false);

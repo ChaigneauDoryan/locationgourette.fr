@@ -39,7 +39,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/#galerie-images" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
-              Galerie d'Images
+              Galerie d&apos;Images
             </Link>
           </li>
           <li>
