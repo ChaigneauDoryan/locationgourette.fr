@@ -6,12 +6,15 @@ import GoogleMapsSection from "../components/GoogleMapsSection";
 import UsefulAddressesSection from "../components/UsefulAddressesSection";
 import ContactForm from "../components/ContactForm";
 import InventorySection from "../components/InventorySection";
+import { getImages } from '@/lib/imageUtils'; // Import the server-side data fetching function
 
-export default function Home() {
+export default async function Home() {
+  const images = await getImages(); // Fetch images on the server
+
   return (
     <main>
       <PresentationSection />
-      <ImageGallery />
+      <ImageGallery images={images} /> {/* Pass images as props to the client component */}
       <PistesSection />
       <AvailabilityCalendar />
       <InventorySection />

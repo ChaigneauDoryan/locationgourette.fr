@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const PistesSection = () => {
   return (
-    <section id="pistes" className="py-16 bg-white">
+    <section id="pistes" className="py-16 bg-white" style={{ scrollMarginTop: '5rem' }}>
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-8">Plan des Pistes de Gourette</h2>
         <p className="text-lg mb-8">

@@ -3,7 +3,7 @@ const GoogleMapsSection = () => {
   const googleMapsAppUrl = "https://maps.google.com/?q=Gourette"; // Remplacez par l'adresse de Gourette ou l'adresse exacte de l'appartement
 
   return (
-    <section id="itineraire" className="py-16 bg-white">
+    <section id="localisation" className="py-16 bg-white" style={{ scrollMarginTop: '5rem' }}>
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-8">Accéder à Gourette</h2>
         <p className="text-lg mb-8">

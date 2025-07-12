@@ -35,6 +35,18 @@ export default function AdminTabs() {
           >
             Adresses Utiles
           </button>
+          <button
+            onClick={() => handleTabClick('images', '/admin/images')}
+            className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${activeTab === 'images' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+          >
+            Images
+          </button>
+          <button
+            onClick={() => handleTabClick('inventory', '/admin/inventory')}
+            className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${activeTab === 'inventory' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+          >
+            Inventaire
+          </button>
         </nav>
       </div>
 
@@ -47,6 +59,12 @@ export default function AdminTabs() {
             </li>
             <li className="mb-2">
               <Link href="/admin/availabilities" className="text-blue-500 hover:underline">Gérer les disponibilités</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/admin/images" className="text-blue-500 hover:underline">Gérer les images</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/admin/inventory" className="text-blue-500 hover:underline">Gérer l'inventaire</Link>
             </li>
           </ul>
         </div>

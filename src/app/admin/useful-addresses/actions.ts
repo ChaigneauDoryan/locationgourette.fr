@@ -48,14 +48,14 @@ export async function addUsefulAddressServer(formData: FormData): Promise<{ succ
 
   if (!user) {
     console.error('User not authenticated for addUsefulAddressServer');
-    return false;
+    return { success: false, error: 'User not authenticated' };
   }
 
   const { data: profile, error: profileError } = await supabase.from('profiles').select('is_admin').eq('id', user.id).single();
 
   if (profileError || !profile || !profile.is_admin) {
     console.error('User is not an admin for addUsefulAddressServer');
-    return false;
+    return { success: false, error: 'User is not an admin' };
   }
 
   const name = formData.get('name') as string;

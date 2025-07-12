@@ -2,7 +2,7 @@
 
 const PresentationSection = () => {
   return (
-    <section id="presentation" className="py-16 bg-gray-100">
+    <section id="presentation" className="py-16 bg-gray-100" style={{ scrollMarginTop: '5rem' }}>
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center mb-8">Appartement à louer à Gourette : Votre Séjour Idéal au Cœur des Pyrénées</h1>
         <div className="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700">

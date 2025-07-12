@@ -38,6 +38,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link href="/#galerie-images" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              Galerie d'Images
+            </Link>
+          </li>
+          <li>
             <Link href="/#pistes" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
               Plan des Pistes
             </Link>
@@ -45,6 +50,21 @@ const Navbar = () => {
           <li>
             <Link href="/#disponibilites" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
               Disponibilités
+            </Link>
+          </li>
+          <li>
+            <Link href="/#inventaire" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              Inventaire
+            </Link>
+          </li>
+          <li>
+            <Link href="/#localisation" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              Localisation
+            </Link>
+          </li>
+          <li>
+            <Link href="/#adresses-utiles" className="block py-2 px-4 hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              Adresses Utiles
             </Link>
           </li>
           <li>
