@@ -76,7 +76,10 @@ export async function updateCategoryPositions(categories: { id: string; position
 
   if (errors.length > 0) {
     console.error('Error updating category positions:', errors);
-    return { error: errors[0]?.message || 'Multiple errors occurred during category position update.' };
+    return {
+      success: false,
+      error: errors[0]?.message || 'Multiple errors occurred during category position update.'
+    };
   }
 
   revalidatePath('/admin/inventory');
