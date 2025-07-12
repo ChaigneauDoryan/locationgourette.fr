@@ -16,7 +16,10 @@ export async function addCategory(formData: FormData) {
 
   if (error) {
     console.error('Error adding category:', error);
-    return { error: error.message };
+    return {
+      success: false,
+      error: 'Invalid category name.',
+    };
   }
 
   revalidatePath('/admin/inventory');
@@ -36,7 +39,7 @@ export async function updateCategory(formData: FormData) {
 
   if (error) {
     console.error('Error updating category:', error);
-    return { error: error.message };
+    return { success: false, error: error.message };
   }
 
   revalidatePath('/admin/inventory');
@@ -53,7 +56,7 @@ export async function deleteCategory(id: string) {
 
   if (error) {
     console.error('Error deleting category:', error);
-    return { error: error.message };
+    return { success: false, error: error.message };
   }
 
   revalidatePath('/admin/inventory');
@@ -106,7 +109,7 @@ export async function addItem(formData: FormData) {
 
   if (error) {
     console.error('Error adding item:', error);
-    return { error: error.message };
+    return { success: false, error: error.message };
   }
 
   revalidatePath('/admin/inventory');
@@ -134,7 +137,7 @@ export async function updateItem(formData: FormData) {
 
   if (error) {
     console.error('Error updating item:', error);
-    return { error: error.message };
+    return { success: false, error: error.message };
   }
 
   revalidatePath('/admin/inventory');
@@ -151,7 +154,7 @@ export async function deleteItem(id: string) {
 
   if (error) {
     console.error('Error deleting item:', error);
-    return { error: error.message };
+    return { success: false, error: error.message };
   }
 
   revalidatePath('/admin/inventory');
@@ -174,7 +177,7 @@ export async function updateItemPositions(items: { id: string; position: number 
 
   if (errors.length > 0) {
     console.error('Error updating item positions:', errors);
-    return { error: errors[0]?.message || 'Multiple errors occurred during position update.' };
+    return { success: false, error: errors[0]?.message || 'Multiple errors occurred during position update.' };
   }
 
   revalidatePath('/admin/inventory');
