@@ -68,7 +68,6 @@ export async function updateImage(formData: FormData) {
     .from('images')
     .update({
       alt_text: altText,
-      position: position,
       display_style: displayStyle,
     })
     .eq('id', id)
