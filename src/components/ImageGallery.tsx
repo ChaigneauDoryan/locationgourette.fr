@@ -5,10 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Image as ImageType } from '@/app/admin/images/page'; // Import the Image type
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+
 
 interface ImageGalleryProps {
   images: ImageType[];

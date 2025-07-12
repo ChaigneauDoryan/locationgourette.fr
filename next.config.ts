@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import withTM from 'next-transpile-modules';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
@@ -14,4 +14,4 @@ const nextConfig: NextConfig = {
   output: 'standalone',
 };
 
-export default withTM(['react-icons'])(nextConfig);
+export default nextConfig;
