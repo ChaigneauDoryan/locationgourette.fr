@@ -18,7 +18,7 @@ export type InventoryItem = {
 };
 
 export default async function InventoryAdminPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Fetch categories
   const { data: categories, error: categoriesError } = await supabase

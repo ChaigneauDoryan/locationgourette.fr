@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabaseServer';
 import { InventoryCategory, InventoryItem } from '@/app/admin/inventory/page';
 
 export async function getCategories(): Promise<InventoryCategory[]> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from('inventory_categories')
     .select('*')
@@ -16,7 +16,7 @@ export async function getCategories(): Promise<InventoryCategory[]> {
 }
 
 export async function getItems(): Promise<InventoryItem[]> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from('inventory_items')
     .select('id, name, category_id, quantity, position, created_at')

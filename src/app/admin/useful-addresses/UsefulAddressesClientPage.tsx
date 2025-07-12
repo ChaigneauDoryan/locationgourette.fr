@@ -390,7 +390,7 @@ export default function UsefulAddressesClientPage({ initialAddresses, addUsefulA
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
+  if (active && over && active.id !== over.id) {
       const oldIndex = addresses.findIndex(addr => addr.id === active.id);
       const newIndex = addresses.findIndex(addr => addr.id === over.id);
 

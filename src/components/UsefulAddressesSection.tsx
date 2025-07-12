@@ -19,7 +19,7 @@ const iconComponents: { [key: string]: React.ElementType } = {
 };
 
 const UsefulAddressesSection = async () => {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: addresses, error } = await supabase
     .from('useful_addresses')
     .select('*')

@@ -13,7 +13,7 @@ export type Image = {
 };
 
 export default async function ImagesAdminPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: images, error } = await supabase.from('images').select('*').order('position', { ascending: true });
 
   if (error) {

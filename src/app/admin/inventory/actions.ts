@@ -6,7 +6,7 @@ import { InventoryCategory, InventoryItem } from './page';
 
 // --- Category Actions ---
 export async function addCategory(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const name = formData.get('name') as string;
 
   const { data, error } = await supabase
@@ -27,7 +27,7 @@ export async function addCategory(formData: FormData) {
 }
 
 export async function updateCategory(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const id = formData.get('id') as string;
   const name = formData.get('name') as string;
 
@@ -47,7 +47,7 @@ export async function updateCategory(formData: FormData) {
 }
 
 export async function deleteCategory(id: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { error } = await supabase
     .from('inventory_categories')
@@ -64,7 +64,7 @@ export async function deleteCategory(id: string) {
 }
 
 export async function updateCategoryPositions(categories: { id: string; position: number }[]) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const updatePromises = categories.map(category =>
     supabase
@@ -91,7 +91,7 @@ export async function updateCategoryPositions(categories: { id: string; position
 
 // --- Item Actions ---
 export async function addItem(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const name = formData.get('name') as string;
   const category_id = formData.get('category_id') as string;
   const quantity = parseInt(formData.get('quantity') as string);
@@ -117,7 +117,7 @@ export async function addItem(formData: FormData) {
 }
 
 export async function updateItem(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const id = formData.get('id') as string;
   const name = formData.get('name') as string;
   const category_id = formData.get('category_id') as string;
@@ -145,7 +145,7 @@ export async function updateItem(formData: FormData) {
 }
 
 export async function deleteItem(id: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { error } = await supabase
     .from('inventory_items')
@@ -162,7 +162,7 @@ export async function deleteItem(id: string) {
 }
 
 export async function updateItemPositions(items: { id: string; position: number }[]) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const updatePromises = items.map(item =>
     supabase

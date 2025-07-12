@@ -4,7 +4,7 @@ import LogoutButton from './logout-button';
 import AdminTabs from '@/components/admin/AdminTabs';
 
 export default async function AdminDashboard() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
 

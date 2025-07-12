@@ -3,21 +3,29 @@
 import { useState, useEffect } from 'react';
 import NextImage from 'next/image';
 import { uploadImage, updateImage, deleteImage, updateImagePositions } from '@/app/admin/images/actions';
-import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
 import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
+interface ImageData {
+  id: string;
+  alt_text: string;
+  storage_path: string;
+  position: number;
+  display_style: string;
+}
+
 interface ImageAdminClientPageProps {
-  initialImages: Image[];
+  initialImages: ImageData[];
 }
 
 import { useRouter } from 'next/navigation';
 
 // Component for a sortable row
 function SortableImageRow({ image, getPublicUrl, startEditing, handleDelete }: {
-  image: Image;
+  image: ImageData;
   getPublicUrl: (path: string) => string;
-  startEditing: (image: Image) => void;
+  startEditing: (image: ImageData) => void;
   handleDelete: (id: string, storagePath: string) => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: image.id });
@@ -57,8 +65,8 @@ function SortableImageRow({ image, getPublicUrl, startEditing, handleDelete }: {
 }
 
 export default function ImageAdminClientPage({ initialImages }: ImageAdminClientPageProps) {
-  const [images, setImages] = useState<Image[]>(initialImages);
-  const [editingImage, setEditingImage] = useState<Image | null>(null);
+  const [images, setImages] = useState<ImageData[]>(initialImages);
+  const [editingImage, setEditingImage] = useState<ImageData | null>(null);
   const [showUploadForm, setShowUploadForm] = useState(false);
   const [newFile, setNewFile] = useState<File | null>(null);
   const [newAltText, setNewAltText] = useState('');
@@ -82,7 +90,7 @@ export default function ImageAdminClientPage({ initialImages }: ImageAdminClient
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
+    if (active && over && active.id !== over.id) {
       const oldIndex = images.findIndex((img) => img.id === active.id);
       const newIndex = images.findIndex((img) => img.id === over.id);
 
@@ -108,7 +116,7 @@ export default function ImageAdminClientPage({ initialImages }: ImageAdminClient
   };
 
   // Helper function for array reordering
-  const arrayMove = (array: Image[], oldIndex: number, newIndex: number) => {
+  const arrayMove = (array: ImageData[], oldIndex: number, newIndex: number) => {
     const newArray = [...array];
     const [removed] = newArray.splice(oldIndex, 1);
     newArray.splice(newIndex, 0, removed);
@@ -168,7 +176,7 @@ export default function ImageAdminClientPage({ initialImages }: ImageAdminClient
     }
   };
 
-  const startEditing = (image: Image) => {
+  const startEditing = (image: ImageData) => {
     setEditingImage(image);
     setEditAltText(image.alt_text);
     setEditDisplayStyle(image.display_style);

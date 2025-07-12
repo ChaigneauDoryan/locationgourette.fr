@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '10mb',
     },
   },
+  reactStrictMode: false,
   /* config options here */
   output: 'standalone',
 };

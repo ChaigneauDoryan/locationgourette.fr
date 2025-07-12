@@ -7,7 +7,7 @@ import { Image } from './page';
 import sizeOf from 'image-size';
 
 export async function uploadImage(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const file = formData.get('file') as File;
   const altText = formData.get('altText') as string;
   const displayStyle = formData.get('displayStyle') as string;
@@ -59,7 +59,7 @@ export async function uploadImage(formData: FormData) {
 }
 
 export async function updateImage(formData: FormData) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const id = formData.get('id') as string;
   const altText = formData.get('altText') as string;
   const displayStyle = formData.get('displayStyle') as string;
@@ -83,7 +83,7 @@ export async function updateImage(formData: FormData) {
 }
 
 export async function deleteImage(id: string, storagePath: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Delete from storage
   const { error: storageError } = await supabase.storage.from('images').remove([storagePath]);
@@ -106,7 +106,7 @@ export async function deleteImage(id: string, storagePath: string) {
 }
 
 export async function updateImagePositions(images: { id: string; position: number }[]) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const updatePromises = images.map(image =>
     supabase

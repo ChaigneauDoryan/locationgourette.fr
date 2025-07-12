@@ -147,7 +147,7 @@ export default function InventoryAdminClientPage({
     formData.append('name', newCategoryName);
     const result = await addCategory(formData);
     if (result.success && result.category) {
-      setCategories((prev) => [...prev, result.category]);
+      setCategories((prev) => [...prev, result.category!]);
       setNewCategoryName('');
       setShowAddCategoryForm(false);
     } else if (result.error) {
@@ -200,7 +200,7 @@ export default function InventoryAdminClientPage({
 
     const result = await addItem(formData);
     if (result.success && result.item) {
-      setItems((prev) => [...prev, result.item]);
+      setItems((prev) => [...prev, result.item!]);
       // Clear form
       setNewItemName('');
       setNewItemCategoryId('');
@@ -255,7 +255,7 @@ export default function InventoryAdminClientPage({
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
+    if (active && over && active.id !== over.id) {
       if (active.data.current?.type === 'category') {
         setCategories((prevCategories) => {
           const oldIndex = prevCategories.findIndex((cat) => cat.id === active.id);
@@ -488,8 +488,15 @@ export default function InventoryAdminClientPage({
                     <th className="py-2 px-4 border-b">Actions</th>
                   </tr>
                 </thead>
-                <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={(event) => handleDragEnd(event, category.id)}>
-                  <SortableContext items={items.filter(item => item.category_id === category.id).map(item => item.id)} strategy={verticalListSortingStrategy}>
+                <DndContext 
+                  sensors={sensors} 
+                  collisionDetection={closestCenter} 
+                  onDragEnd={(event) => handleDragEnd(event)}
+                >
+                  <SortableContext 
+                    items={items.filter(item => item.category_id === category.id).map(item => item.id)} 
+                    strategy={verticalListSortingStrategy}
+                  >
                     <tbody>
                       {items.filter(item => item.category_id === category.id).map((item) => (
                         <SortableInventoryItem

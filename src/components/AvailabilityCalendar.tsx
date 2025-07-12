@@ -27,11 +27,15 @@ const AvailabilityCalendar = () => {
         }
         setAvailabilities(data || []);
       } catch (err: unknown) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+          if (err instanceof Error) {
+            setError(err.message);
+          } else {
+            setError('An unknown error occurred');
+          }
+        } finally {
+          setLoading(false);
+        }
+      };
 
     fetchAvailabilities();
   }, []);
@@ -126,6 +130,6 @@ const AvailabilityCalendar = () => {
       </div>
     </section>
   );
-};
+}
 
 export default AvailabilityCalendar;

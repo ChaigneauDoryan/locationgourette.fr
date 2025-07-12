@@ -15,7 +15,7 @@ interface UsefulAddress {
 }
 
 export async function getUsefulAddressesServer(): Promise<UsefulAddress[]> {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
@@ -43,7 +43,7 @@ export async function getUsefulAddressesServer(): Promise<UsefulAddress[]> {
 }
 
 export async function addUsefulAddressServer(formData: FormData): Promise<{ success: boolean; error?: string }> {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
@@ -90,7 +90,7 @@ export async function addUsefulAddressServer(formData: FormData): Promise<{ succ
 }
 
 export async function updateUsefulAddressServer(formData: FormData): Promise<{ success: boolean; error?: string }> {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: { user } = {} } = await supabase.auth.getUser();
 
   if (!user) {
@@ -128,7 +128,7 @@ export async function updateUsefulAddressServer(formData: FormData): Promise<{ s
 }
 
 export async function deleteUsefulAddressServer(id: string): Promise<{ success: boolean; error?: string }> {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: { user } = {} } = await supabase.auth.getUser();
 
   if (!user) {
@@ -155,7 +155,7 @@ export async function deleteUsefulAddressServer(id: string): Promise<{ success: 
 }
 
 export async function updateAddressesOrderServer(orderedAddresses: UsefulAddress[]): Promise<{ success: boolean; error?: string }> {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
