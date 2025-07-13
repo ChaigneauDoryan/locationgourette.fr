@@ -5,8 +5,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Suspense } from 'react';
-import ErrorBoundary from "../components/ErrorBoundary";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,11 +57,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
-            {children}
-          </Suspense>
-        </ErrorBoundary>
+        {children}
         <Footer />
       </body>
     </html>
